@@ -1,0 +1,39 @@
+{
+  "name": "jm-sms",
+  "version": "1.0.3",
+  "description": "sms",
+  "main": "./lib/index",
+  "scripts": {
+    "start": "jm-server",
+    "cluster": "jm-server --cluster",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jm-root/jm-sms.git"
+  },
+  "keywords": [
+    "javascript",
+    "jm-sms"
+  ],
+  "author": {
+    "name": "Jeff YU"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jm-root/jm-sms/issues"
+  },
+  "homepage": "https://github.com/jm-root/jm-sms",
+  "dependencies": {
+    "aliyun-dysms-sdk": "^1.0.0",
+    "config": "^2.0.1",
+    "jm-ms-wrapper": "^1.0.0",
+    "jm-server": "^2.0.5"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
