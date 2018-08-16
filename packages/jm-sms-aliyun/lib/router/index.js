@@ -5,7 +5,6 @@ const help = require('./help')
 
 module.exports = function (opts = {}) {
   let service = this
-  const wrap = wrapper(service.t)
 
   let send = async function (opts) {
     await service.send(opts.data)
@@ -13,9 +12,10 @@ module.exports = function (opts = {}) {
   }
 
   let router = ms.router()
+  wrapper(service.t)(router)
   router
     .use(help(service))
-    .use('/send', wrap(send))
+    .use('/send', send)
 
   return router
 }

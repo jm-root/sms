@@ -27,7 +27,7 @@
   "dependencies": {
     "aliyun-dysms-sdk": "^1.0.0",
     "config": "^2.0.1",
-    "jm-ms-wrapper": "^1.0.0",
+    "jm-ms-wrapper": "^1.0.1",
     "jm-server": "^2.0.5"
   },
   "devDependencies": {
