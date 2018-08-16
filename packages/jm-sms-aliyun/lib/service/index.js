@@ -29,7 +29,16 @@ class SMS {
     try {
       await this.smsClient.sendSMS(opts)
     } catch (e) {
-      e.data = Err.FA_SEND_SMS
+      e.data = Object.assign(
+        Err.FA_SEND_SMS,
+        {
+          data: {
+            code: e.code,
+            name: e.name,
+            message: e.message
+          }
+        }
+      )
       throw e
     }
   }
