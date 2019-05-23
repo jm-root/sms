@@ -1,12 +1,11 @@
 openapi: 3.0.0
 # Added by API Auto Mocking Plugin
 servers:
-  - description: jamma test server
-    url: http://api.test.jamma.cn/sms
+  - url: http://api.test.jamma.cn/sms
 info:
   version: "1.0.0"
-  title: jm-sms-api
-  description: 短信系统API
+  title: jm-sms-aliyun-api
+  description: 阿里云短信系统API
 paths:
   /send:
     post:
