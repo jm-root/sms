@@ -16,4 +16,4 @@ npm run cluster
 
 access_key_id 阿里云 accessKeyId
 
-secret_access_key 阿里云 secretAccessKey
+access_key_secret 阿里云 accessKeySecret

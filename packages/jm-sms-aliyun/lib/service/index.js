@@ -8,7 +8,7 @@ class SMS {
     this.ready = true
     this.t = t
     const accessKeyId = opts.access_key_id
-    const accessKeySecret = opts.secret_access_key
+    const accessKeySecret = opts.access_key_secret
 
     this.client = new Core({
       accessKeyId,
