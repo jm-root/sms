@@ -1,0 +1,60 @@
+openapi: 3.0.0
+# Added by API Auto Mocking Plugin
+servers:
+  - url: http://api.test.jamma.cn/sms
+info:
+  version: "1.0.0"
+  title: jm-sms-aliyun-api
+  description: 阿里云短信系统API
+paths:
+  /send:
+    post:
+      description: 发送短信, 参数请参考 https://help.aliyun.com/document_detail/57458.html?spm=a2c4g.11186623.6.572.kQOXs3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmsInfo'
+      responses:
+        '200':
+          description: 发送结果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetInfo'
+components:
+  schemas:
+    SmsInfo:
+      type: object
+      properties:
+        PhoneNumbers:
+          type: string
+          required: true
+          description: 短信接收号码
+          example: '15000000000'
+        SignName:
+          type: string
+          required: true
+          description: 短信签名
+          example: '云通信'
+        TemplateCode:
+          type: string
+          required: true
+          description: 短信模板ID
+          example: 'SMS_0000'
+        TemplateParam:
+          type: string
+          description: 短信模板变量替换JSON串
+          example: '{"code":"1234","product":"ytx"}'
+        OutId:
+          type: string
+          description: 外部流水扩展字段
+          example: 'abcdefgh'
+    RetInfo:
+      type: object
+      properties:
+        ret:
+          type: integer
+          format: int32
+          example: 1
+      description: 发送结果

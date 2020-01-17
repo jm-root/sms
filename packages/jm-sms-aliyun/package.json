@@ -1,16 +1,14 @@
 {
-  "name": "jm-sms",
-  "version": "1.0.0",
+  "name": "jm-sms-aliyun",
+  "version": "1.0.1",
   "description": "sms",
   "main": "./lib/index",
   "scripts": {
-    "start": "jm-server",
-    "cluster": "jm-server --cluster",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jm-root/jm-sms.git"
+    "url": "https://github.com/jm-root/sms.git"
   },
   "keywords": [
     "javascript",
@@ -21,17 +19,12 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jm-root/jm-sms/issues"
+    "url": "https://github.com/jm-root/sms/issues"
   },
-  "homepage": "https://github.com/jm-root/jm-sms",
+  "homepage": "https://github.com/jm-root/sms",
   "dependencies": {
-    "aliyun-dysms-sdk": "^1.0.0",
-    "config": "^2.0.1",
-    "jm-ms-wrapper": "^1.0.1",
-    "jm-server": "^2.0.5"
-  },
-  "devDependencies": {
-    "jest": "^22.4.3"
+    "@alicloud/pop-core": "^1.7.9",
+    "jm-ms-wrapper": "^1.0.1"
   },
   "jest": {
     "testEnvironment": "node"

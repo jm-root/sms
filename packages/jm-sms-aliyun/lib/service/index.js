@@ -1,4 +1,4 @@
-const SMSClient = require('aliyun-dysms-sdk')
+const Core = require('@alicloud/pop-core')
 const consts = require('../consts')
 const Err = consts.Err
 const t = require('../locale')
@@ -7,9 +7,15 @@ class SMS {
   constructor (opts = {}) {
     this.ready = true
     this.t = t
-    let accessKeyId = opts.access_key_id
-    let secretAccessKey = opts.secret_access_key
-    this.smsClient = new SMSClient({accessKeyId, secretAccessKey})
+    const accessKeyId = opts.access_key_id
+    const accessKeySecret = opts.secret_access_key
+
+    this.client = new Core({
+      accessKeyId,
+      accessKeySecret,
+      endpoint: 'https://dysmsapi.aliyuncs.com',
+      apiVersion: '2017-05-25'
+    })
   }
 
   /**
@@ -27,7 +33,16 @@ class SMS {
    */
   async send (opts) {
     try {
-      await this.smsClient.sendSMS(opts)
+      const params = {
+        'RegionId': 'cn-hangzhou'
+      }
+
+      const requestOption = {
+        method: 'POST'
+      }
+
+      const doc = await this.client.request('SendSms', { ...params, ...opts }, requestOption)
+      return JSON.stringify(doc)
     } catch (e) {
       e.data = Object.assign(
         Err.FA_SEND_SMS,
